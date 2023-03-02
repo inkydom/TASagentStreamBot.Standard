@@ -61,6 +61,8 @@ builder.Services
     .AddTASSingleton<TASagentTwitchBot.Core.Bits.CheerHelper>()
     .AddTASSingleton<TASagentTwitchBot.Core.Bits.CheerDispatcher>()
     .AddTASSingleton<TASagentTwitchBot.Core.Commands.TestCommandSystem>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Chatbot.TFidfChatbot>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Chatbot.MarkovChatbot>()
     .AddTASSingleton<TASagentTwitchBot.Core.Commands.ShoutOutSystem>();
 
 //Core Twitch Chat Systems
@@ -134,9 +136,8 @@ builder.Services
     .AddTASSingleton<TASagentTwitchBot.Core.TTS.TTSRenderer>()
     .AddTASSingleton<TASagentTwitchBot.Core.TTS.TTSSystem>()
     .AddTASSingleton<TASagentTwitchBot.Core.TTS.TTSWebRequestHandler>()
-    .AddTASSingleton<TASagentTwitchBot.Plugin.TTS.AmazonTTS.AmazonTTSWebSystem>()
-    .AddTASSingleton<TASagentTwitchBot.Plugin.TTS.AzureTTS.AzureTTSWebSystem>()
-    .AddTASSingleton<TASagentTwitchBot.Plugin.TTS.GoogleTTS.GoogleTTSWebSystem>();
+    .AddTASSingleton<TASagentTwitchBot.Plugin.TTS.AmazonTTS.AmazonTTSLocalSystem>()
+    .AddTASSingleton<TASagentTwitchBot.Plugin.TTS.GoogleTTS.GoogleTTSLocalSystem>();
 
 //EventSub System
 //Core EventSub
