@@ -61,8 +61,18 @@ builder.Services
     .AddTASSingleton<TASagentTwitchBot.Core.Bits.CheerHelper>()
     .AddTASSingleton<TASagentTwitchBot.Core.Bits.CheerDispatcher>()
     .AddTASSingleton<TASagentTwitchBot.Core.Commands.TestCommandSystem>()
-    .AddTASSingleton<TASagentTwitchBot.Core.Chatbot.TFidfChatbot>()
-    .AddTASSingleton<TASagentTwitchBot.Core.Chatbot.MarkovChatbot>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Chatbot.ChatbotListener>()
+    .AddTASSingleton<TASagentTwitchBot.Core.APIs.OpenAI.OpenAIHelper>()
+    .AddTASSingleton<TASagentTwitchBot.Core.APIs.OpenTriviaDb.TriviaHelper>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.GameFactory>()
+     .AddTASSingleton<TASagentTwitchBot.Core.Games.UserTeamService>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.TriviaGame>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.HaikuGame>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.EmoteSpamGame>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.FiveWordStoryGame>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Games.NumberGuessingGame>()
+    .AddTASSingleton<TASagentTwitchBot.Core.Commands.DadPicSystem>()
+        .AddTASSingleton<TASagentTwitchBot.Core.Commands.RedVsBlueSystem>()
     .AddTASSingleton<TASagentTwitchBot.Core.Commands.ShoutOutSystem>();
 
 //Core Twitch Chat Systems
@@ -157,7 +167,7 @@ builder.Services.AddTASSingleton<TASagentTwitchBot.Core.Timer.TimerManager>();
 builder.Services.RegisterControllerSpyServices();
 
 //TTTAS System
-builder.Services.RegisterTTTASServices();
+//builder.Services.RegisterTTTASServices();
 
 //Quote System
 builder.Services.RegisterQuotesServices();
@@ -227,7 +237,7 @@ app.UseCoreLibraryContent("TASagentTwitchBot.Core");
 app.UseCoreLibraryContent("TASagentTwitchBot.Plugin.ControllerSpy");
 
 //TTTAS Assets
-app.UseCoreLibraryContent("TASagentTwitchBot.Plugin.TTTAS");
+//app.UseCoreLibraryContent("TASagentTwitchBot.Plugin.TTTAS");
 
 //Quote Assets
 app.UseCoreLibraryContent("TASagentTwitchBot.Plugin.Quotes");
@@ -257,7 +267,7 @@ app.MapHub<TASagentTwitchBot.Core.Web.Hubs.EmoteHub>("/Hubs/Emote");
 app.RegisterControllerSpyEndpoints();
 
 //TTTAS Endpoints
-app.RegisterTTTASEndpoints();
+//app.RegisterTTTASEndpoints();
 
 
 await app.StartAsync();
